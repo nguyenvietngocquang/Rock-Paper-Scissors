@@ -1,26 +1,95 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Game } from "./Game";
+import { Interface } from "./Interface";
+import { ComputerResult } from "./ComputerResult";
+import { YourResult } from "./YourResult";
+import { Ranking } from "./Ranking";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  draws = [];
+  losses = [];
+  wins = [];
+  state = {
+    games: 0,
+    yourChoice: "",
+    computerChoice: null,
+    rock:
+      "https://static.thenounproject.com/png/477918-200.png",
+    paper:
+      "https://static.thenounproject.com/png/477922-200.png",
+    scissors:
+      "https://static.thenounproject.com/png/477919-200.png",
+  };
+
+  computerChoice = () => {
+    this.setState({
+      computerChoice: Math.floor(Math.random() * 3) + 1
+    });
+  };
+
+  choiceRock = () => {
+    this.setState({
+      yourChoice: 1,
+      games: this.state.games + 1
+    });
+    this.computerChoice();
+  };
+
+  choicePaper = () => {
+    this.setState({
+      yourChoice: 2,
+      games: this.state.games + 1
+    });
+    this.computerChoice();
+  };
+
+  choiceScissors = () => {
+    this.setState({
+      yourChoice: 3,
+      games: this.state.games + 1
+    });
+    this.computerChoice();
+  };
+
+  clearState = () => {
+    this.losses = [];
+    this.wins = [];
+    this.draws = [];
+    this.setState({
+      yourChoice: "",
+      computerChoice: null,
+      games: 0
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Interface
+          games={this.state.games}
+          clearState={this.clearState}
+          choiceRock={this.choiceRock}
+          choicePaper={this.choicePaper}
+          choiceScissors={this.choiceScissors}
+          yourChoice={this.state.yourChoice}
+          computerChoice={this.state.computerChoice}
+        />
+        <div className="effects">
+          <YourResult allstates={this.state} />
+          <ComputerResult allstates={this.state} />
+        </div>
+        <Game results={this.state} />
+        <Ranking
+          wins={this.wins}
+          losses={this.losses}
+          draws={this.draws}
+          yourChoice={this.state.yourChoice}
+          computerChoice={this.state.computerChoice}
+        />
+      </>
+    );
+  }
 }
 
 export default App;
