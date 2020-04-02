@@ -43,7 +43,7 @@
 
 * {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -92,16 +92,10 @@ span:hover {
   transition: 0.5s;
 }
 
-.table {
-  color: white;
-  margin: 20px auto;
-  width: 200px;
-  background: rgb(138, 138, 241);
-  padding: 5px;
+.your-choice {
+  margin: 0px 50px 0px auto;
 }
 
-.result {
-  flex-direction: row;
-  padding: 5px;
-  margin: 0 auto;
+.computer-choice {
+  margin: 0px auto 0px 50px;
 }
