@@ -7,21 +7,21 @@ export const Interface = props => {
       <div>Choose your choice:</div>
       <img
         alt="Rock"
-        onClick={props.choiceRock}
+        onClick={() => props.chooseChoice(1)}
         style={{ cursor: "pointer" }}
         width="9%"
         src="https://static.thenounproject.com/png/477918-200.png"
       />
       <img
         alt="Paper"
-        onClick={props.choicePaper}
+        onClick={() => props.chooseChoice(2)}
         style={{ cursor: "pointer" }}
         width="9%"
         src="https://static.thenounproject.com/png/477922-200.png"
       />
       <img
         alt="Scissors"
-        onClick={props.choiceScissors}
+        onClick={() => props.chooseChoice(3)}
         style={{ cursor: "pointer" }}
         width="9%"
         src="https://static.thenounproject.com/png/477919-200.png"

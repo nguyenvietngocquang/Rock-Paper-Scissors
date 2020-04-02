@@ -1,9 +1,9 @@
 import React from "react";
 import { Game } from "./Game";
 import { Interface } from "./Interface";
-import { ComputerResult } from "./ComputerResult";
-import { YourResult } from "./YourResult";
-import { Ranking } from "./Ranking";
+import { ComputerChoice } from "./ComputerChoice";
+import { YourChoice } from "./YourChoice";
+import { Result } from "./Result";
 import "./App.css";
 
 class App extends React.Component {
@@ -28,25 +28,9 @@ class App extends React.Component {
     });
   };
 
-  choiceRock = () => {
+  chooseChoice = (number) => {
     this.setState({
-      yourChoice: 1,
-      games: this.state.games + 1
-    });
-    this.computerChoice();
-  };
-
-  choicePaper = () => {
-    this.setState({
-      yourChoice: 2,
-      games: this.state.games + 1
-    });
-    this.computerChoice();
-  };
-
-  choiceScissors = () => {
-    this.setState({
-      yourChoice: 3,
+      yourChoice: number,
       games: this.state.games + 1
     });
     this.computerChoice();
@@ -69,18 +53,16 @@ class App extends React.Component {
         <Interface
           games={this.state.games}
           clearState={this.clearState}
-          choiceRock={this.choiceRock}
-          choicePaper={this.choicePaper}
-          choiceScissors={this.choiceScissors}
+          chooseChoice={this.chooseChoice}
           yourChoice={this.state.yourChoice}
           computerChoice={this.state.computerChoice}
         />
         <div className="effects">
-          <YourResult allstates={this.state} />
-          <ComputerResult allstates={this.state} />
+          <YourChoice allstates={this.state} />
+          <ComputerChoice allstates={this.state} />
         </div>
         <Game results={this.state} />
-        <Ranking
+        <Result
           wins={this.wins}
           losses={this.losses}
           draws={this.draws}

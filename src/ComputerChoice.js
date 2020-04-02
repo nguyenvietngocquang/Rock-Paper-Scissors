@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ComputerResult = props => {
+export const ComputerChoice = props => {
   const { rock, paper, scissors, computerChoice } = props.allstates;
   if (computerChoice === 1) {
     return (

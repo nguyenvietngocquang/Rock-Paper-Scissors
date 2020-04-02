@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Ranking = props => {
+export const Result = props => {
   if ((props.yourChoice === 1 && props.computerChoice === 3) || (props.yourChoice === 2 && props.computerChoice === 1) 
     || (props.yourChoice === 3 && props.computerChoice === 2)) {
     props.wins.push(1);
