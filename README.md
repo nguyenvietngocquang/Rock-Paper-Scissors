@@ -10,4 +10,4 @@
 
 [Rock Paper Scissors](https://nguyenvietngocquang.github.io/Rock-Paper-Scissors)
 
-![Web demo](https://i.imgur.com/N7hKCuL.gif)
+![Web demo](https://i.imgur.com/xKAjaKz.gif)
